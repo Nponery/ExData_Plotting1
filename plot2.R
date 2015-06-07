@@ -1,0 +1,7 @@
+one <- read.table("./1.txt",header=T,sep=";",skip=66636,nrows=2880)
+one1 <- read.table("./1.txt",header=T,sep=";",nrows=2)
+names(one1)->names(one)
+dt<-as.POSIXlt(paste(as.Date(one$Date, format="%d/%m/%Y"), one$Time, sep=" "))
+png(file="plot2.png",width=480,height=480)
+plot(dt,one$Global_active_power,type="l",xlab="",ylab="Global Active Power (kilowatts)")
+dev.off()
